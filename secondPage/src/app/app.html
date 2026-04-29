@@ -1,0 +1,20 @@
+<div style="padding: 20px; font-family: sans-serif;">
+  <h1>{{ title }}</h1>
+
+  <div style="margin-bottom: 20px;">
+    <input [(ngModel)]="newItem" placeholder="Enter food name" style="padding: 5px;" />
+    <button (click)="addItem()" style="padding: 5px 15px; cursor: pointer;">Add Item</button>
+  </div>
+
+  <ul style="list-style: none; padding: 0;">
+    <li *ngFor="let item of menuList; let i = index" 
+        style="margin-bottom: 10px; border-bottom: 1px solid #ddd; padding: 10px; display: flex; justify-content: space-between; max-width: 300px;">
+      <span>{{ item }}</span>
+      <button (click)="deleteMenu(i)" style="background: red; color: white; border: none; padding: 5px 10px; cursor: pointer;">
+        Delete
+      </button>
+    </li>
+  </ul>
+
+  <p *ngIf="menuList.length === 0">No food items remaining!</p>
+</div>
